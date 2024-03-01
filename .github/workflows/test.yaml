@@ -23,7 +23,7 @@ jobs:
         run: npm run typecheck
       - name: Build Project
         run: |
-          FLAGSMITH_KEY = ${{ secrets.FLAGSMITH }}
+          export FLAGSMITH_KEY = ${{ secrets.FLAGSMITH }}
           npm run build
       - uses: actions/upload-artifact@v4
         with:
