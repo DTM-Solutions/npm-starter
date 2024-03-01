@@ -21,10 +21,15 @@ jobs:
         run: npm run lint
       - name: Check for Type Errors
         run: npm run typecheck
+      #   - name: 'Create env file'
+      #     run: |
+      #        touch .env
+      #        echo FLAGSMITH_KEY=${{ secrets.FLAGSMITH_KEY }} >> .env
+      #        cat .env
       - name: Build Project
-        run: |
-          export FLAGSMITH_KEY=${{ secrets.FLAGSMITH }}
-          npm run build
+        run: npm run build
+        env:
+          FLAGSMITH_KEY: ${{ secrets.FLAGSMITH_KEY }}
       - uses: actions/upload-artifact@v4
         with:
           name: build
@@ -50,14 +55,14 @@ jobs:
         id: cache-playwright
         with:
           path: ~/.cache/ms-playwright
-          key: playwright-browsers
+          key: playwright-browsers-${{ env.PLAYWRIGHT_VERSION }}
       - name: Install Playwright Browsers
         if: steps.cache-playwright.outputs != 'true'
         run: npx playwright install --with-deps
       - name: RUN E2E Tests
         run: npm run test:e2e
         env:
-          FLAGSMITH_KEY: ${{ secrets.FLAGSMITH }}
+          FLAGSMITH_KEY: ${{ secrets.FLAGSMITH_KEY }}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
