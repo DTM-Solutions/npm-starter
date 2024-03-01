@@ -21,11 +21,6 @@ jobs:
         run: npm run lint
       - name: Check for Type Errors
         run: npm run typecheck
-      #   - name: 'Create env file'
-      #     run: |
-      #        touch .env
-      #        echo FLAGSMITH_KEY=${{ secrets.FLAGSMITH_KEY }} >> .env
-      #        cat .env
       - name: Build Project
         run: npm run build
         env:
