@@ -1,4 +1,4 @@
-// import Flagsmith from "flagsmith-nodejs"; 
+// import Flagsmith from "flagsmith-nodejs";
 
 // // const Flagsmith = require('flagsmith-nodejs');
 
