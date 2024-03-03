@@ -1,5 +1,11 @@
 # github-actions-course-demo
 
+## 0.3.0
+
+### Minor Changes
+
+- cc9144c: fix
+
 ## 0.2.1
 
 ### Patch Changes
