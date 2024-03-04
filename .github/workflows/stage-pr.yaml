@@ -7,5 +7,5 @@ jobs:
     trigger-pr-branch-deploy:
         runs-on: ubuntu-latest
         steps:
-            - run: echo ${{ toJson(github.event)}}       
-            - run: echo ${{ toJson(github.ref)}}
+            - run: echo '${{ toJson(github.event)}} '      
+            - run: echo '${{ toJson(github.ref)}}'
