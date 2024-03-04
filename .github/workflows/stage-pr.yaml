@@ -25,7 +25,7 @@ jobs:
                     return response.data.head.ref
             - run: echo '${{ toJson(github.event)}} '      
             - run: echo '${{ toJson(github.ref)}}'
-            - name: Trigger a Branh Deploy
+            - name: Trigger a Branch Deploy
               uses: actions/github-script@v6
               with: 
                 script: |
@@ -33,7 +33,7 @@ jobs:
                         owner: context.repo.owner,
                         repo: context.repo.repo, 
                         workflow_id: "deploy.yaml",
-                        ref: ${{ steps.get-head-ref.outputs.result }}
+                        ref: "${{ steps.get-head-ref.outputs.result }}"
                         input: {
                             "aws-env": `github-actions-course-demo-pr-${context.issue.number}`,
                             "github-env": "staging"
