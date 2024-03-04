@@ -78,6 +78,8 @@ jobs:
     uses: ./.github/workflows/test.yaml
     secrets: inherit
   deploy-to-staging:
+    permissions: 
+      pull-requests: write
     needs: run-tests
     uses: ./.github/workflows/deploy.yaml
     secrets: inherit
