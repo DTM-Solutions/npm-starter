@@ -15,7 +15,6 @@ on:
       report-pr:
         description: "PR to add report comments to"
         type: number
-
   workflow_dispatch:
     inputs:
       aws-env:
